@@ -14,7 +14,7 @@ class SearchForm extends React.Component {
 	};
 
 	onChange = (e, data) => {
-		this.setState({query: data.value, loading: true});
+		this.setState({query: data.value});
 
 		console.log("onChange: " + this.state.query + " | " + this.state.loading)
 	};
