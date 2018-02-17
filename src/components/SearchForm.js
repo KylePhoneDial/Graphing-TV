@@ -10,13 +10,16 @@ class SearchForm extends React.Component {
 
 	onSubmit = (e, data) => {
 		e.preventDefault();
-		this.setState({query: data.value, loading: true});
+		this.setState({
+			query: data.value, 
+			loading: true
+		});
+
+		this.props.handleQuery(this.state.query, this.state.loading);
 	};
 
 	onChange = (e, data) => {
 		this.setState({query: data.value});
-
-		console.log("onChange: " + this.state.query + " | " + this.state.loading)
 	};
 
 	render () {
