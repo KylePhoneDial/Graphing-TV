@@ -1,24 +1,26 @@
-import React from "react";
-import { Form, Button } from "semantic-ui-react";
+import React from 'react';
+import { Form, Button } from 'semantic-ui-react';
 
 class SearchForm extends React.Component {
 
-	state = {
-		query: "",
-		loading: false
-	};
+	constructor() {
+		super();
+		this.state = {
+			query:'',
+		}
+	}
 
 	onSubmit = (e, data) => {
 		e.preventDefault();
 		this.setState({
 			query: data.value, 
-			loading: true
 		});
 
-		this.props.handleQuery(this.state.query, this.state.loading);
+		this.props.handleQuery(this.state.query);
 	};
 
 	onChange = (e, data) => {
+		e.preventDefault();
 		this.setState({query: data.value});
 	};
 
