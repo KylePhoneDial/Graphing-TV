@@ -1,17 +1,18 @@
-import React from "react";
-import SearchForm from "../components/SearchForm";
+import React from 'react';
+import SearchForm from '../components/SearchForm';
+import Graph from '../components/Graph';
 
 class HomePage extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			query:'',
+		}
+	}
 
-	state = {
-		query:'',
-		loading: false
-	};
-
-	handleQuery = (queryVal, loadingStatus) => {
+	handleQuery = (queryVal) => {
 		this.setState({
 			query: queryVal,
-			loading: loadingStatus
 		});
 	};
 
@@ -19,7 +20,7 @@ class HomePage extends React.Component {
 		return(
 			<div>
 				<SearchForm handleQuery={this.handleQuery}/>
-				<h1>{this.state.query} DOG</h1>
+				{this.state.query !== '' ? <Graph query={this.state.query} /> : null}
 			</div>
 		);
 	}
