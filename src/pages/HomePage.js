@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchForm from '../components/SearchForm';
 import Graph from '../components/Graph';
+import Header from '../components/Header';
 
 class HomePage extends React.Component {
 	constructor() {
@@ -19,8 +20,9 @@ class HomePage extends React.Component {
 	render () {
 		return(
 			<div>
-				<SearchForm handleQuery={this.handleQuery}/>
+				<Header />
 				{this.state.query !== '' ? <Graph query={this.state.query} /> : null}
+				<SearchForm handleQuery={this.handleQuery}/>
 			</div>
 		);
 	}

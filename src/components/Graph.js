@@ -41,11 +41,11 @@ class Graph extends React.Component {
 				datasets: [
 					{
 						label: this.props.query,
-						backgroundColor: 'rgba(255,99,132,0.4)',
-      					borderColor: 'rgba(255,99,132,1)',
+						backgroundColor: 'rgba(0, 105, 120, 1)',
+      					borderColor: 'rgba(86, 200, 216, 1)',
       					borderWidth: 1,
-      					hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      					hoverBorderColor: 'rgba(255,99,132,1)',
+      					hoverBackgroundColor: 'rgba(0, 86, 98, 1)',
+      					hoverBorderColor: 'rgba(79, 179, 191, 1)',
       					data: episodeRating
 					}
 				]
@@ -74,7 +74,19 @@ class Graph extends React.Component {
 					width={100}
 					height={200}
 					options={{
-						maintainAspectRatio: false
+						maintainAspectRatio: false,
+						legend: {
+							display: false
+						},
+						scales: {
+        					yAxes: [{
+            					ticks: {
+                					beginAtZero: true,
+                					max: 10
+            					}
+        					}]
+    					}
+
 					}}
 				/>
 			</div>

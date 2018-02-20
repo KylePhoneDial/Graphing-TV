@@ -3,7 +3,6 @@ import HomePage from './pages/HomePage';
 
 const App = () => (
 	<div>
-		<h1>Graphing TV</h1>
 		<HomePage />
 	</div>
 
