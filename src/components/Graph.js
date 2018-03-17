@@ -15,7 +15,10 @@ class Graph extends React.Component {
 		}
 	}
 
+	//Make the API call, process the data, then put the data into the chart
 	getRatings(show) {
+		episodeNum = [];
+		episodeRating = [];
 		imdb.get(show, {apiKey: 'foo'})
 			.then(things => {
     			things.episodes().then(data => {
@@ -32,6 +35,8 @@ class Graph extends React.Component {
 			episodeNum.push('s' + episodes[i].season + 'e' + episodes[i].episode);
 			episodeRating.push(episodes[i].rating);
 		}
+
+		this.getChartData();
 	}
 
 	getChartData() {
@@ -56,11 +61,18 @@ class Graph extends React.Component {
 	componentWillMount() {
 		this.setState({
 			loading: true
-		});
-		this.getRatings(this.props.query);
-		this.getChartData();
+		}, this.getRatings(this.props.query));
 	}
 
+
+
+	componentWillReceiveProps(newProps) {
+		if(newProps.query !== this.props.query) {
+			this.setState({
+				loading:true
+			}, this.getRatings(newProps.query));
+		}
+	}
 
 	render () {
 		if(this.state.loading) {
