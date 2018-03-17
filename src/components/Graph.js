@@ -64,11 +64,11 @@ class Graph extends React.Component {
 
 	render () {
 		if(this.state.loading) {
-			return <h2>Loading...</h2>;
+			return <div class='spinningLoader'></div>;
 		}
 
 		return(
-			<div>
+			<div class='ratingsGraph'>
 				<Bar
 					data={this.state.chartData}
 					width={100}
