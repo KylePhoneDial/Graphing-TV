@@ -45,6 +45,8 @@ class HomePage extends React.Component {
         <div>
           <Header />
           <SearchForm handleQuery={this.handleQuery} />
+          <h1></h1>
+          <h2>{this.state.query}</h2>
           {this.state.query !== '' ? (<Graph query={this.state.query} handleError={this.handleError} /> ) : null}
         </div>
       );
